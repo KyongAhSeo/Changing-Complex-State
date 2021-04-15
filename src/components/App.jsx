@@ -14,32 +14,11 @@ function App() {
 
     //4. call the method that upadates the contact
     setContact((prevValue) => {
-      //fName input란에 타이핑을 했을때
-      if (name === "fName") {
-        return {
-          //fName만 업데이트
-          fName: value,
-          lName: prevValue.lName,
-          email: prevValue.email
-        };
-        //lName input란에 타이핑 했을때
-      } else if (name === "lName") {
-        return {
-          fName: prevValue.fName,
-          //lName만 업데이트
-          lName: value,
-          email: prevValue.email
-        };
-        //email input란에 타이핑 했을때
-      } else if (name === "email") {
-        return {
-          fName: prevValue.fName,
-          lName: prevValue.lName,
-          //email만 업데이트
-          email: value
-        };
-      }
-    });
+      return {
+        ...prevValue,
+        [name]: value
+      };
+      });
   }
 
   return (
